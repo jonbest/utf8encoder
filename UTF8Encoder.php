@@ -46,7 +46,7 @@ class UTF8Encoder
 			array_walk_recursive($x, 'self::__evalUTF8');
 		}
 		elseif(is_string($x) && !mb_detect_encoding($x, 'utf-8', true))
-		$x = utf8_encode($x);
+			$x = utf8_encode($x);
 			
 		return $x;
 	}
