@@ -1,12 +1,19 @@
 <?php
 /**
- * UTF-8 Encoder will encode variables passed to it.
+ * UTF-8 Encoder will encode variables and values passed to it.
  *
  * @author jonbest
  *
  */
 class UTF8Encoder
 {
+	protected static function __construct()
+	{
+		if(!extension_loaded('mbstring'))
+			die('UTF8Encoder requires the "mbstring" PHP extension. Please visit the PHP 
+				installation manual at http://php.net/manual/en/mbstring.installation.php');
+	}
+	
 	/** Will UTF-8 encode the variable value(s) passed to it. Note that this method
 	 * 	must be passed a variable; it cannot accept a non-stored value. This method
 	 * 	will make adjustments by reference as well as return the resulting variable.
